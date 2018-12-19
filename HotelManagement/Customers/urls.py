@@ -5,5 +5,9 @@ app_name = 'customers'
 
 urlpatterns = [
     path('', landing_page, name='landing_page'),
-    re_path(r'^home$', home, name='home'),
+    path('home/', home, name='home'),
+    path('customer_login/', customer_login, name='login'),
+    path('customer_logout/', customer_logout, name='logout'),
+
+    path('management_login/', management_login_page, name='management_login_page'),
 ]

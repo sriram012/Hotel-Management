@@ -1,10 +1,724 @@
 <!DOCTYPE html>
-<html lang="en">
+<!--[if lt IE 9 ]><html class="no-js oldie" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="no-js oldie ie9" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+{% load staticfiles %}
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
 <head>
-    <meta charset="UTF-8">
-    <title>Check In</title>
+
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>REST IN</title>
+    <meta name="description" content="Lodging website">
+    <meta name="author" content="">
+
+    <!-- mobile specific metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="{% static 'customers/css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'customers/css/vendor.css' %}">
+    <link rel="stylesheet" href="{% static 'customers/css/main.css' %}">
+
+
+    <!-- script
+    ================================================== -->
+    <script src="{% static 'customers/js/modernizr.js' %}"></script>
+    <script src="{% static 'customers/js/pace.min.js' %}"></script>
+
+    <!-- favicons
+    ================================================== -->
+    <link rel="shortcut icon" href="{% static 'customers/favicon.ico' %}" type="image/x-icon">
+    <link rel="icon" href="{% static 'customers/favicon.ico' %}" type="image/x-icon">
+
 </head>
-<body>
+
+<body id="top">
+
+    {#  Nav Bar  #}
+
+
+    <!-- header -->
+    <header class="s-header">
+
+        <div class="header-logo">
+            <a class="site-logo" href="{% url 'customers:landing_page' %}">
+                <img src="{% static 'customers/images/logo.png' %}" alt="Homepage">
+            </a>
+        </div>
+
+        <nav class="header-nav">
+
+            <a href="#" class="header-nav__close" title="close"><span>Close</span></a>
+
+            <div class="header-nav__content">
+                <h3>Menu</h3>
+                
+                <ul class="header-nav__list">
+                    <li class="current"><a class="smoothscroll"  href="#home" title="home">Home</a></li>
+                    <li><a class="smoothscroll"  href="#services" title="services">Services</a></li>
+                    <li><a class="smoothscroll"  href="#works" title="works">Works</a></li>
+                    <li><a class="smoothscroll"  href="#clients" title="clients">Clients</a></li>
+                    <li><a class="smoothscroll"  href="#about" title="about">About Us</a></li>
+                    <li><a class="smoothscroll"  href="#contact" title="contact">Contact Us</a></li>
+                </ul>
+    
+                <ul class="header-nav__social">
+                    <li>
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-instagram"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-linkedin"></i></a>
+                    </li>
+                </ul>
+
+            </div> <!-- header-nav content end -->
+
+        </nav>  <!-- header-nav end -->
+
+        <a class="header-menu-toggle" href="#0">
+            <span class="header-menu-icon"></span>
+        </a>
+
+    </header> <!-- s-header end -->
+
+
+    <!-- home -->
+    <section id="home" class="s-home target-section" data-parallax="scroll" data-image-src="images/hero-bg.jpg" data-natural-width=3000 data-natural-height=2000 data-position-y=center>
+
+        <div class="overlay"></div>
+        <div class="shadow-overlay"></div>
+
+        <div class="home-content">
+
+            <div class="row home-content__main">
+
+                <h3>REST_IN  Welcomes You</h3>
+
+                <h4>
+                    We provide you luxurious, <br>
+                    comfortable and decorous <br>
+                    rooms. You'll feel the palatial <br>
+                    experience of the rooms.
+                </h4>
+
+                <div class="home-content__buttons">
+                    <a href="{% url 'customers:login' %}" class="reg_btn btn--stroke">
+                        Customer Login
+                    </a>
+                    <a href="{% url 'customers:management_login_page' %}" class="login_btn btn--stroke">
+                        Management Login
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="home-content__scroll">
+                <a href="#about" class="scroll-link smoothscroll">
+                    <span>Scroll Down</span>
+                </a>
+            </div>
+
+            <div class="home-content__line"></div>
+
+        </div> <!-- home-content end -->
+
+
+        <ul class="home-social">
+            <li>
+                <a href="#0"><i class="fa fa-facebook" aria-hidden="true"></i><span>Facebook</span></a>
+            </li>
+            <li>
+                <a href="#0"><i class="fa fa-twitter" aria-hidden="true"></i><span>Twiiter</span></a>
+            </li>
+            <li>
+                <a href="#0"><i class="fa fa-instagram" aria-hidden="true"></i><span>Instagram</span></a>
+            </li>
+            <li>
+                <a href="#0"><i class="fa fa-linkedin" aria-hidden="true"></i><span>LinkedIn</span></a>
+            </li>
+        </ul> 
+        <!-- home-social end -->
+
+    </section> <!-- s-home end -->
+
+
+    <!-- About -->
+    <section id='about' class="s-about">
+
+        <div class="row section-header has-bottom-sep" data-aos="fade-up">
+            <div class="col-full">
+                <h3 class="subhead subhead--dark">Hello There</h3>
+                <h1 class="display-1 display-1--light">REST IN</h1>
+            </div>
+        </div> <!-- section-header end -->
+
+        <div class="row about-desc" data-aos="fade-up">
+            <div class="col-full">
+                <p>
+                Established in 2018 in INDIA, REST_IN has grown from a small start-up to one of the
+                largest Lodging e-commerce companies in the world. Part of Booking Holdings,
+                REST_IN now employs more than 20,00 employees in 19 offices in 10 countries worldwide.
+                </p>
+            </div>
+        </div> <!-- about-desc end -->
+
+        <div class="row about-stats stats block-1-4 block-m-1-2 block-mob-full" data-aos="fade-up">
+                
+            <div class="col-block stats__col ">
+                <div class="stats__count">{{ blocks_count }}</div>
+                <h5>Blocks</h5>
+            </div>
+            <div class="col-block stats__col">
+                <div class="stats__count">{{ rooms_count }}</div>
+                <h5>Rooms</h5>
+            </div>
+            <div class="col-block stats__col">
+                <div class="stats__count">{{ customers_count }}</div>
+                <h5>Customers</h5>
+            </div>
+            <div class="col-block stats__col">
+                <div class="stats__count">200</div>
+                <h5>Employees</h5>
+            </div>
+
+        </div> <!-- about-stats end -->
+
+        <div class="about__line"></div>
+
+    </section> <!-- s-about end -->
+
+
+    <!-- Services -->
+    <section id='services' class="s-services">
+
+        <div class="contact__line-above"></div>
+
+        <div class="row section-header has-bottom-sep" data-aos="fade-up">
+            <div class="col-full">
+                <h3 class="subhead">What Do We Do</h3>
+                <h1 class="display-2">We’ve got everything you need to stay, eat and enjoy</h1>
+            </div>
+        </div> <!-- section-header end -->
+
+        <div class="row services-list block-1-2 block-tab-full">
+
+            <div class="col-block service-item" data-aos="fade-up">
+                <div class="service-icon">
+                    <i class="icon-paint-brush"></i>
+                </div>
+                <div class="service-text">
+                    <h3 class="h2">Brand Identity</h3>
+                    <p>REST IN is based in Telangana in the INDIA, and is supported internationally
+                        by 19 offices in over 10 countries around the world: India - Indonesia - Portuguese - Amsterdam -
+                        United States Of America - Wakanda - Knowwhere - Vormir - Titan - Asgard
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-block service-item" data-aos="fade-up">
+                <div class="service-icon">
+                    <i class="icon-group"></i>
+                </div>
+                <div class="service-text">
+                    <h3 class="h2">Rates We Provide At</h3>
+                    <p>REST IN  guarantees to offer you the best available rates.
+                        And with our promise to price match, you can rest assured that
+                        you’re always getting a great deal.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-block service-item" data-aos="fade-up">
+                <div class="service-icon">
+                    <i class="icon-megaphone"></i>
+                </div>  
+                <div class="service-text">
+                    <h3 class="h2">Marketing</h3>
+                    <p>Many travelers begin with search engines...<br>
+                        That's why we don't wait for guests to come to us, but actively promote your property
+                        on search engines all across the globe.
+                        Listing on restin.com means your listing is advertised on Google Maps too.
+                        We partner with airline companies like Emirates, American Airlines, easyJet, KLM,
+                        and many more to promote your property to their customers.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-block service-item" data-aos="fade-up">
+                <div class="service-icon">
+                    <i class="icon-earth"></i>
+                </div>
+                <div class="service-text">
+                    <h3 class="h2">Events</h3>
+                    <p>We also plan some events daily to entertain our customers. We plan small games for children,
+                        cultural competitions for boys and girls, cultural programs and also events for old people.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-block service-item" data-aos="fade-up">
+                <div class="service-icon">
+                    <i class="icon-cube"></i>
+                </div>
+                <div class="service-text">
+                    <h3 class="h2">Trips</h3>
+                    <p>We also plan trips to nearby visiting places for certain number of people every week.
+                    </p>
+                </div>
+            </div>
+    
+            <div class="col-block service-item" data-aos="fade-up">
+                <div class="service-icon"><i class="icon-lego-block"></i></div>
+                <div class="service-text">
+                    <h3 class="h2">Learning</h3>
+                    <p>We even provide learning facilities like self defence, yoga, marshall arts an we also provide gym
+                        available daily from 5 o'clock in the morning till 6 o'clock in the evening.
+                    </p>
+                </div>
+            </div>
+
+        </div> <!-- services-list end -->
+
+    </section> <!-- s-services end -->
+
+
+    <!-- Works -->
+    <section id='works' class="s-works">
+
+        <div class="contact__line-below"></div>
+
+        <div class="intro-wrap">
+                
+            <div class="row section-header has-bottom-sep light-sep" data-aos="fade-up">
+                <div class="col-full">
+                    <h3 class="subhead">Recent Events</h3>
+                    <h1 class="display-2 display-2--light">We love what we do, check out some of our latest works</h1>
+                </div>
+            </div> <!-- section-header end -->
+
+        </div> <!-- intro-wrap end -->
+
+        <div class="row works-content">
+            <div class="col-full masonry-wrap">
+                <div class="masonry">
+    
+                    <div class="masonry__brick" data-aos="fade-up">
+                        <div class="item-folio">
+                                
+                            <div class="item-folio__thumb">
+                                <a href="{% static 'customers/images/portfolio/gallery/g-shutterbug.jpg' %}"
+                                   class="thumb-link" title="Shutterbug" data-size="1050x700">
+                                    <img src="{% static 'customers/images/portfolio/lady-shutterbug.jpg' %}"
+                                         srcset="{% static 'customers/images/portfolio/lady-shutterbug.jpg' %} 1x,
+                                          {% static 'customers/images/portfolio/lady-shutterbug@2x.jpg' %} 2x" alt="">
+                                </a>
+                            </div>
+    
+                            <div class="item-folio__text">
+                                <h3 class="item-folio__title">
+                                    Musical Chairs
+                                </h3>
+                                <p class="item-folio__cat">
+                                    For kids
+                                </p>
+                            </div>
+    
+                            <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
+                                <i class="icon-link"></i>
+                            </a>
+    
+                            <div class="item-folio__caption">
+                                <p>
+                                    A small entertaining game for children
+                                </p>
+                            </div>
+    
+                        </div>
+                    </div> <!-- masonry__brick end -->
+
+                    <div class="masonry__brick" data-aos="fade-up">
+                        <div class="item-folio">
+                                
+                            <div class="item-folio__thumb">
+                                <a href="{% static 'customers/images/portfolio/gallery/g-woodcraft.jpg' %}"
+                                   class="thumb-link" title="Woodcraft" data-size="1050x700">
+                                    <img src="{% static 'customers/images/portfolio/woodcraft.jpg' %}"
+                                         srcset="{% static 'customers/images/portfolio/woodcraft.jpg' %} 1x,
+                                            {% static 'customers/images/portfolio/woodcraft@2x.jpg' %} 2x" alt="">
+                                </a>
+                            </div>
+    
+                            <div class="item-folio__text">
+                                <h3 class="item-folio__title">
+                                    Balance Beam
+                                </h3>
+                                <p class="item-folio__cat">
+                                    For kids
+                                </p>
+                            </div>
+    
+                            <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
+                                <i class="icon-link"></i>
+                            </a>
+    
+                            <div class="item-folio__caption">
+                                <p>
+                                    Balancing on a stick. Who walks the whole stick balancing in less time is the winner.
+                                </p>
+                            </div>
+    
+                        </div>
+                    </div> <!-- end masonry__brick -->
+    
+                    <div class="masonry__brick" data-aos="fade-up">
+                        <div class="item-folio">
+                                
+                            <div class="item-folio__thumb">
+                                <a href="{% static 'customers/images/portfolio/gallery/g-beetle.jpg' %}"
+                                   class="thumb-link" title="The Beetle Car" data-size="1050x700">
+                                    <img src="{% static 'customers/images/portfolio/the-beetle.jpg' %}"
+                                         srcset="{% static 'customers/images/portfolio/the-beetle.jpg' %} 1x,
+                                                {% static 'customers/images/portfolio/the-beetle@2x.jpg' %} 2x" alt="">
+                                </a>
+                            </div>
+    
+                            <div class="item-folio__text">
+                                <h3 class="item-folio__title">
+                                    Sorting
+                                </h3>
+                                <p class="item-folio__cat">
+                                    For kids
+                                </p>
+                            </div>
+    
+                            <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
+                                <i class="icon-link"></i>
+                            </a>
+    
+                            <div class="item-folio__caption">
+                                <p>
+                                    For younger kids, sorting colors is the easiest way to start.
+                                </p>
+                            </div>
+    
+                        </div>
+                    </div> <!-- end masonry__brick -->
+    
+                    <div class="masonry__brick" data-aos="fade-up">
+                        <div class="item-folio">
+                                
+                            <div class="item-folio__thumb">
+                                <a href="{% static 'customers/images/portfolio/gallery/g-grow-green.jpg' %}"
+                                   class="thumb-link" title="Grow Green" data-size="1050x700">
+                                    <img src="{% static 'customers/images/portfolio/grow-green.jpg' %}"
+                                         srcset="{% static 'customers/images/portfolio/grow-green.jpg' %} 1x,
+                                          {% static 'customers/images/portfolio/grow-green@2x.jpg' %} 2x" alt="">
+                                </a>
+                            </div>
+    
+                            <div class="item-folio__text">
+                                <h3 class="item-folio__title">
+                                    Keep the Balloon Up
+                                </h3>
+                                <p class="item-folio__cat">
+                                    For kids
+                                </p>
+                            </div>
+    
+                            <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
+                                <i class="icon-link"></i>
+                            </a>
+    
+                            <div class="item-folio__caption">
+                                <p>
+                                    The given balloon should not fell. They should keep it floating in air
+                                    using their hands.
+                                </p>
+                            </div>
+    
+                        </div>
+                    </div> <!-- end masonry__brick -->
+
+                </div> <!-- end masonry -->
+            </div> <!-- end col-full -->
+        </div> <!-- end works-content -->
+
+    </section> <!-- end s-works -->
+
+
+    <!-- clients -->
+    <section id="clients" class="s-clients">
+
+        <div class="contact__line-above"></div>
+
+        <div class="row section-header" data-aos="fade-up">
+            <div class="col-full">
+                <h3 class="subhead">Our Clients</h3>
+                <h1 class="display-2"><span style="color: #33a242">REST IN</span> has been honored to
+                partner up with these clients</h1>
+            </div>
+        </div> <!-- end section-header -->
+
+        <div class="row clients-outer" data-aos="fade-up">
+            <div class="col-full">
+                <div class="clients">
+                    
+                    <a href="#0" title="" class="clients__slide"><img src="{% static 'customers/images/clients/apple.png' %}" /></a>
+                    <a href="#0" title="" class="clients__slide"><img src="{% static 'customers/images/clients/atom.png' %}" /></a>
+                    <a href="#0" title="" class="clients__slide"><img src="{% static 'customers/images/clients/blackberry.png' %}" /></a>
+                    <a href="#0" title="" class="clients__slide"><img src="{% static 'customers/images/clients/dropbox.png' %}" /></a>
+                    <a href="#0" title="" class="clients__slide"><img src="{% static 'customers/images/clients/envato.png' %}" /></a>
+                    <a href="#0" title="" class="clients__slide"><img src="{% static 'customers/images/clients/firefox.png' %}" /></a>
+                    <a href="#0" title="" class="clients__slide"><img src="{% static 'customers/images/clients/joomla.png' %}" /></a>
+                    <a href="#0" title="" class="clients__slide"><img src="{% static 'customers/images/clients/magento.png' %}" /></a>
+                     
+                </div> <!-- end clients -->
+            </div> <!-- end col-full -->
+        </div> <!-- end clients-outer -->
+
+
+    </section> <!-- end s-clients -->
+
+
+    <!-- contact -->
+    <section id="contact" class="s-contact">
+
+        <div class="overlay"></div>
+        <div class="contact__line-below"></div>
+
+        <div class="row section-header" data-aos="fade-up">
+            <div class="col-full">
+                <h3 class="subhead">Contact Us</h3>
+                <h1 class="display-2 display-2--light">Leave a message for any suggestions or feedback</h1>
+            </div>
+        </div>
+
+        <div class="row contact-content" data-aos="fade-up">
+            
+            <div class="contact-primary">
+
+                <h3 class="h6">Send Us A Message</h3>
+
+                <form name="contactForm" id="contactForm" method="post" action="" novalidate="novalidate">
+                    <fieldset>
+    
+                    <div class="form-field">
+                        <input name="contactName" type="text" id="contactName" placeholder="Your Name" value="" minlength="2" required="" aria-required="true" class="full-width">
+                    </div>
+                    <div class="form-field">
+                        <input name="contactEmail" type="email" id="contactEmail" placeholder="Your Email" value="" required="" aria-required="true" class="full-width">
+                    </div>
+                    <div class="form-field">
+                        <input name="contactSubject" type="text" id="contactSubject" placeholder="Subject" value="" class="full-width">
+                    </div>
+                    <div class="form-field">
+                        <textarea name="contactMessage" id="contactMessage" placeholder="Your Message" rows="10" cols="50" required="" aria-required="true" class="full-width"></textarea>
+                    </div>
+                    <div class="form-field">
+                        <button class="full-width btn--primary">Submit</button>
+                        <div class="submit-loader">
+                            <div class="text-loader">Submitting...</div>
+                            <div class="s-loader">
+                                <div class="bounce1"></div>
+                                <div class="bounce2"></div>
+                                <div class="bounce3"></div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    </fieldset>
+                </form>
+
+                <!-- contact-warning -->
+                <div class="message-warning">
+                    Something went wrong. Please try again.
+                </div> 
+            
+                <!-- contact-success -->
+                <div class="message-success">
+                    Your message was sent, thank you!<br>
+                </div>
+
+            </div> <!-- end contact-primary -->
+
+            <div class="contact-secondary">
+                <div class="contact-info">
+
+                    <h3 class="h6 hide-on-fullwidth">Contact Info</h3>
+
+                    <div class="cinfo">
+                        <h5>Where to Find Us</h5>
+                        <p>
+                            Rd.No: 03, Vinayak Nagar<br>
+                            Nizamabad, Telangana<br>
+                            503001 INDIA
+                        </p>
+                    </div>
+
+                    <div class="cinfo">
+                        <h5>Email Us At</h5>
+                        <p>
+                            sriram.nandala@gmail.com<br>
+                            info@restin.com
+                        </p>
+                    </div>
+
+                    <div class="cinfo">
+                        <h5>Call Us At</h5>
+                        <p>
+                            Phone: (+91) 9182510981<br>
+                            Mobile: (+91) 9182510981<br>
+                            Fax: (+91) 9182510981
+                        </p>
+                    </div>
+
+                    <ul class="contact-social">
+                        <li>
+                            <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                        </li>
+                    </ul> <!-- end contact-social -->
+
+                </div> <!-- end contact-info -->
+            </div> <!-- end contact-secondary -->
+
+        </div> <!-- end contact-content -->
+
+    </section> <!-- end s-contact -->
+
+
+    <!-- footer
+    ================================================== -->
+    <footer>
+
+        <div class="row footer-main">
+
+            <div class="col-six tab-full left footer-desc">
+
+                <div class="footer-logo"></div>
+                Established in 2018 in INDIA, REST_IN has grown from a small start-up to one of the
+                largest Lodging e-commerce companies in the world. Part of Booking Holdings,
+                REST_IN now employs more than 20,00 employees in 19 offices in 10 countries worldwide.
+
+            </div>
+
+            <div class="col-six tab-full right footer-subscribe">
+
+                <h4>Get Notified</h4>
+                <p>
+                    Please enter your email and proceed to register for restin and book your room
+                </p>
+
+                <div class="subscribe-form">
+                    <form id="mc-form" class="group" novalidate="true">
+                        <input type="email" value="" name="EMAIL" class="email" id="mc-email" placeholder="Email Address" required="">
+                        <input type="submit" name="subscribe" value="Subscribe">
+                        <label for="mc-email" class="subscribe-message"></label>
+                    </form>
+                </div>
+
+            </div>
+
+        </div> <!-- end footer-main -->
+
+        <div class="row footer-bottom">
+
+            <div class="col-twelve">
+                <div class="copyright">
+                    <span>© Copyright RESTIN 2018</span>
+                    <span>CEO: <a href="#">Neelakanta Sriram</a></span>
+                </div>
+
+                <div class="go-top">
+                    <a class="smoothscroll" title="Back to Top" href="#top"><i class="icon-arrow-up" aria-hidden="true"></i></a>
+                </div>
+            </div>
+
+        </div> <!-- end footer-bottom -->
+
+    </footer> <!-- end footer -->
+
+
+    <!-- photoswipe background -->
+    <div aria-hidden="true" class="pswp" role="dialog" tabindex="-1">
+
+        <div class="pswp__bg"></div>
+        <div class="pswp__scroll-wrap">
+
+            <div class="pswp__container">
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+            </div>
+
+            <div class="pswp__ui pswp__ui--hidden">
+                <div class="pswp__top-bar">
+                    <div class="pswp__counter"></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button> <button class="pswp__button pswp__button--share" title=
+                    "Share"></button> <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button> <button class="pswp__button pswp__button--zoom" title=
+                    "Zoom in/out"></button>
+                    <div class="pswp__preloader">
+                        <div class="pswp__preloader__icn">
+                            <div class="pswp__preloader__cut">
+                                <div class="pswp__preloader__donut"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                    <div class="pswp__share-tooltip"></div>
+                </div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button> <button class="pswp__button pswp__button--arrow--right" title=
+                "Next (arrow right)"></button>
+                <div class="pswp__caption">
+                    <div class="pswp__caption__center"></div>
+                </div>
+            </div>
+
+        </div>
+
+    </div> <!-- end photoSwipe background -->
+
+
+    <!-- preloader
+    ================================================== -->
+    <div id="preloader">
+        <div id="loader">
+            <div class="line-scale-pulse-out">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Java Script
+    ================================================== -->
+    <script src="{% static 'customers/js/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'customers/js/plugins.js' %}"></script>
+    <script src="{% static 'customers/js/main.js' %}"></script>
 
 </body>
+
 </html>
