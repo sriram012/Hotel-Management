@@ -14,6 +14,7 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+MEDIA_DIR = os.path.join(BASE_DIR, 'media')
 
 
 # Quick-start development settings - unsuitable for production
@@ -32,8 +33,10 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'Customers.apps.CustomersConfig',
+    'RoomService.apps.RoomserviceConfig',
     'RoomsManagement.apps.RoomsmanagementConfig',
     'FoodService.apps.FoodserviceConfig',
+    'FoodManagement.apps.FoodmanagementConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -125,3 +128,20 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
+
+# Media Files...
+MEDIA_ROOT = MEDIA_DIR
+MEDIA_URL = '/media/'
+
+
+LOGOUT_REDIRECT_URL = 'customers:landing_page'
+
+
+# Email Details...
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'blank@gmail.com'
+EMAIL_HOST_PASSWORD = 'itsecret'

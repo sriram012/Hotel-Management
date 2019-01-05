@@ -1252,7 +1252,7 @@ button::-moz-focus-inner, input::-moz-focus-inner {
     line-height: 1.333;
     text-transform: uppercase;
     letter-spacing: .25rem;
-    color: #39b54a;
+    color: #f89e3f;
     margin-top: 0;
     margin-bottom: 0;
 }
@@ -1312,7 +1312,7 @@ button::-moz-focus-inner, input::-moz-focus-inner {
 .section-header {
     text-align: center;
     position: relative;
-    margin-bottom: 3.6rem;
+    margin-bottom: 0.6rem;
     max-width: 960px;
 }
 
@@ -1484,7 +1484,7 @@ button::-moz-focus-inner, input::-moz-focus-inner {
     line-height: 1.846;
     padding: 3.6rem 3rem 3.6rem 3.6rem;
     height: 100%;
-    width: 280px;
+    width: 320px;
     position: fixed;
     right: 0;
     top: 0;
@@ -1511,15 +1511,15 @@ button::-moz-focus-inner, input::-moz-focus-inner {
     color: white;
 }
 
-.header-nav h3 {
+.header-nav h2 {
     font-family: "montserrat-semibold", sans-serif;
-    font-size: 11px;
+    font-size: 20px;
     line-height: 1.5;
     text-transform: uppercase;
     letter-spacing: .25rem;
     margin-bottom: 4.8rem;
     margin-top: .9rem;
-    color: #39b54a;
+    color: #f89e0f;
 }
 
 .header-nav p {
@@ -1548,7 +1548,7 @@ button::-moz-focus-inner, input::-moz-focus-inner {
 
 .header-nav__list a,
 .header-nav__list a:visited {
-    color: #FFFFFF;
+    color: #4f4f4f;
 }
 
 .header-nav__social {
@@ -1799,13 +1799,20 @@ button::-moz-focus-inner, input::-moz-focus-inner {
 .home-content h3 {
     font-family: "montserrat-medium", sans-serif;
     font-size: 1.6rem;
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(250, 160, 50, 1);
     text-transform: uppercase;
     letter-spacing: .3rem;
     position: relative;
     margin-top: 0;
-    margin-bottom: 1.2rem;
-    margin-left: 6px;
+    margin-bottom: 2.5rem;
+    margin-left: 11%;
+}
+
+.home-content h3 span {
+    font-family: "montserrat-medium", sans-serif;
+    font-size: 1.6rem;
+    color: rgba(248, 158, 0, 1);
+    text-transform: uppercase;
 }
 
 .home-content h4 {
@@ -1838,8 +1845,8 @@ button::-moz-focus-inner, input::-moz-focus-inner {
 
 .home-content__buttons .login_btn {
     width: 235px;
-    border-color: #39b54a;
-    background: #39b54a;
+    border-color: #f89e0f;
+    background: #f89e0f;
     color: #000000;
     margin: 1.5rem 1.5rem 0 0;
     letter-spacing: .25rem;
@@ -1853,8 +1860,8 @@ button::-moz-focus-inner, input::-moz-focus-inner {
 
 .home-content__buttons .reg_btn:hover,
 .home-content__buttons .reg_btn:focus {
-    background: #39b54a !important;
-    border: 0.2rem solid #39b54a;
+    background: #f89e0f !important;
+    border: 0.2rem solid #f89e0f;
     color: #000000;
 }
 
@@ -1909,15 +1916,15 @@ button::-moz-focus-inner, input::-moz-focus-inner {
     display: block;
     width: 2px;
     height: 10.2rem;
-    background-color: #39b54a;
+    background-color: #f89e0f;
     position: absolute;
     right: 7.2rem;
     bottom: 0;
 }
 
 
-/* ------------------------------------------------------------------- 
- * ## home social 
+/* -------------------------------------------------------------------
+ * ## home social
  * ------------------------------------------------------------------- */
 .home-social {
     font-family: "montserrat-regular", sans-serif;
@@ -1966,10 +1973,16 @@ button::-moz-focus-inner, input::-moz-focus-inner {
     line-height: calc(33px - 4px);
     border: 2px solid #FFFFFF;
     border-radius: 50%;
+    opacity: 0.5;
+}
+
+.home-social i:hover {
+    border: 2px solid #f89e0f;
+    opacity: 1;
 }
 
 .home-social span {
-    color: #39b54a;
+    color: #f89e0f;
     right: 4.5rem;
     font-size: 1.3rem;
     opacity: 0;
@@ -2008,7 +2021,7 @@ html.no-csstransitions .home-content__main {
 }
 
 
-/* ------------------------------------------------------------------- 
+/* -------------------------------------------------------------------
  * ## home animations
  * ------------------------------------------------------------------- */
 
@@ -2073,7 +2086,7 @@ html.no-csstransitions .home-content__main {
 }
 
 
-/* ------------------------------------------------------------------- 
+/* -------------------------------------------------------------------
  * responsive:
  * home
  * ------------------------------------------------------------------- */
@@ -2225,7 +2238,7 @@ html.no-csstransitions .home-content__main {
 .s-about {
     padding-top: 16.2rem;
     padding-bottom: 9rem;
-    background-color: #39b54a;
+    background-color: rgba(248, 158, 15, 0.9);
     color: #010507;
     position: relative;
 }
@@ -2627,7 +2640,7 @@ html.no-csstransitions .home-content__main {
     font-family: "montserrat-semibold", sans-serif;
     font-size: 1.4rem;
     line-height: 1.286;
-    color: #FFFFFF;
+    color: #f89e0f;
     text-transform: uppercase;
     letter-spacing: .2rem;
     margin: 0 0 .3rem 0;
@@ -2647,11 +2660,13 @@ html.no-csstransitions .home-content__main {
 
 .item-folio__project-link {
     display: block;
+    font-size: 1.6rem;
+    font-family: "Segoe UI Symbol";
     color: #FFFFFF;
     box-shadow: 0 0 0 1px #FFFFFF;
-    border-radius: 50%;
-    height: 4.2rem;
-    width: 4.2rem;
+    border-radius: 2%;
+    height: 3.1rem;
+    width: 18.2rem;
     text-align: center;
     z-index: 500;
     position: absolute;
@@ -3028,7 +3043,7 @@ html.no-csstransitions .home-content__main {
     display: block;
     width: 2px;
     height: 10.2rem;
-    background-color: #222222;
+    background-color: #ffffff;
     position: absolute;
     right: 7.2rem;
     top: 0;
@@ -3558,6 +3573,13 @@ footer .row {
     color: #FFFFFF;
 }
 
+.fa-american-sign-language-interpreting { color: #f89e0f; }
+.fa-dollar { color: #f89e0f; }
+.icon-megaphone { color: #f89e0f; }
+.icon-earth { color: #f89e0f; }
+.fa-bus { color: #f89e0f; }
+.fa-graduation-cap { color: #f89e0f; }
+
 
 /* ------------------------------------------------------------------- 
  * responsive:
@@ -3634,6 +3656,5 @@ footer .row {
         padding-left: 0;
     }
 }
-
 
 /*# sourceMappingURL=main.css.map */

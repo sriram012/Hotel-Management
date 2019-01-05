@@ -1,7 +1,13 @@
 from django.db import models
 from django.contrib.auth.models import User
-from RoomsManagement.models import Room as AssignedRooms
-from datetime import datetime, timedelta
+
+
+# Gender Options...
+gender_options = (
+    ('M', 'Male'),
+    ('F', 'Female'),
+    ('O', 'Others'),
+)
 
 
 # Address...
@@ -33,11 +39,7 @@ class Customers(models.Model):
     address = models.ForeignKey(Address, on_delete=models.CASCADE)
     customer_id = models.CharField(max_length=10, blank=False)
     contact_details = models.OneToOneField(ContactDetails, on_delete=models.CASCADE)
-
-    # Room Assigned...
-    room_assigned = models.OneToOneField(AssignedRooms, on_delete=models.CASCADE)
-    room_assigned_time = models.DateTimeField(editable=False, default=datetime.now())
-    room_assigned_hours = models.IntegerField(blank=False)
+    gender = models.CharField(choices=gender_options, max_length=10)
 
     # Number of visits...
     number_of_visits = models.IntegerField(default=0)
@@ -47,5 +49,15 @@ class Customers(models.Model):
         order_with_respect_to = 'customer_id'
 
     def __str__(self):
-        return self.user.username + ' ( ' + str(self.room_assigned_time)\
-               + ', ' + str(self.room_assigned_hours) + 'hrs )'
+        return self.user.username
+
+
+# Notified Emails...
+class NotifiedEmails(models.Model):
+    email = models.EmailField(unique=True)
+
+    class Meta:
+        db_table = 'Emails to be notified'
+
+    def __str__(self):
+        return self.email

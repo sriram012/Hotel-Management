@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-<!--[if lt IE 9 ]><html class="no-js oldie" lang="en"> <![endif]-->
-<!--[if IE 9 ]><html class="no-js oldie ie9" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!-->
+
 {% load staticfiles %}
+
 <html class="no-js" lang="en">
 <!--<![endif]-->
 
@@ -11,7 +10,7 @@
     <!--- basic page needs
     ================================================== -->
     <meta charset="utf-8">
-    <title>REST IN</title>
+    <title>REST INN</title>
     <meta name="description" content="Lodging website">
     <meta name="author" content="">
 
@@ -28,8 +27,6 @@
 
     <!-- script
     ================================================== -->
-    <script src="{% static 'customers/js/modernizr.js' %}"></script>
-    <script src="{% static 'customers/js/pace.min.js' %}"></script>
 
     <!-- favicons
     ================================================== -->
@@ -57,15 +54,23 @@
             <a href="#" class="header-nav__close" title="close"><span>Close</span></a>
 
             <div class="header-nav__content">
-                <h3>Menu</h3>
+                <h2>REST INN.</h2>
                 
                 <ul class="header-nav__list">
-                    <li class="current"><a class="smoothscroll"  href="#home" title="home">Home</a></li>
-                    <li><a class="smoothscroll"  href="#services" title="services">Services</a></li>
-                    <li><a class="smoothscroll"  href="#works" title="works">Works</a></li>
-                    <li><a class="smoothscroll"  href="#clients" title="clients">Clients</a></li>
-                    <li><a class="smoothscroll"  href="#about" title="about">About Us</a></li>
-                    <li><a class="smoothscroll"  href="#contact" title="contact">Contact Us</a></li>
+                    <li class="current"><a class=""  href="{% url 'customers:landing_page' %}" title="home">Home</a></li>
+                    <li class="current">
+                        <a class=""  href="{% url 'customers:login' %}" title="Customer Login">Customer Login</a>
+                    </li>
+                    <li class="current">
+                        <a class=""  href="{% url 'customers:management_login_page' %}" title="Management Login">
+                            Management Login
+                        </a>
+                    </li>
+                    <li><a class=""  href="#services" title="services">Services</a></li>
+                    <li><a class=""  href="#works" title="works">Works</a></li>
+                    <li><a class=""  href="#clients" title="clients">Clients</a></li>
+                    <li><a class=""  href="#about" title="about">About Us</a></li>
+                    <li><a class=""  href="#contact" title="contact">Contact Us</a></li>
                 </ul>
     
                 <ul class="header-nav__social">
@@ -87,7 +92,7 @@
 
         </nav>  <!-- header-nav end -->
 
-        <a class="header-menu-toggle" href="#0">
+        <a class="header-menu-toggle" href="#">
             <span class="header-menu-icon"></span>
         </a>
 
@@ -104,7 +109,7 @@
 
             <div class="row home-content__main">
 
-                <h3>REST_IN  Welcomes You</h3>
+                <h3><span>REST INN</span>  Welcomes You</h3>
 
                 <h4>
                     We provide you luxurious, <br>
@@ -125,7 +130,7 @@
             </div>
 
             <div class="home-content__scroll">
-                <a href="#about" class="scroll-link smoothscroll">
+                <a href="#about" class="scroll-link">
                     <span>Scroll Down</span>
                 </a>
             </div>
@@ -137,16 +142,16 @@
 
         <ul class="home-social">
             <li>
-                <a href="#0"><i class="fa fa-facebook" aria-hidden="true"></i><span>Facebook</span></a>
+                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i><span>Facebook</span></a>
             </li>
             <li>
-                <a href="#0"><i class="fa fa-twitter" aria-hidden="true"></i><span>Twiiter</span></a>
+                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i><span>Twiiter</span></a>
             </li>
             <li>
-                <a href="#0"><i class="fa fa-instagram" aria-hidden="true"></i><span>Instagram</span></a>
+                <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i><span>Instagram</span></a>
             </li>
             <li>
-                <a href="#0"><i class="fa fa-linkedin" aria-hidden="true"></i><span>LinkedIn</span></a>
+                <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i><span>LinkedIn</span></a>
             </li>
         </ul> 
         <!-- home-social end -->
@@ -157,10 +162,10 @@
     <!-- About -->
     <section id='about' class="s-about">
 
-        <div class="row section-header has-bottom-sep" data-aos="fade-up">
+        <div class="row section-header" data-aos="fade-up">
             <div class="col-full">
                 <h3 class="subhead subhead--dark">Hello There</h3>
-                <h1 class="display-1 display-1--light">REST IN</h1>
+                <h1 class="display-1 display-1--light">REST INN</h1>
             </div>
         </div> <!-- section-header end -->
 
@@ -189,7 +194,7 @@
                 <h5>Customers</h5>
             </div>
             <div class="col-block stats__col">
-                <div class="stats__count">200</div>
+                <div class="stats__count">{{ employees_count }}</div>
                 <h5>Employees</h5>
             </div>
 
@@ -216,11 +221,11 @@
 
             <div class="col-block service-item" data-aos="fade-up">
                 <div class="service-icon">
-                    <i class="icon-paint-brush"></i>
+                    <i class="fa fa-american-sign-language-interpreting"></i>
                 </div>
                 <div class="service-text">
                     <h3 class="h2">Brand Identity</h3>
-                    <p>REST IN is based in Telangana in the INDIA, and is supported internationally
+                    <p>REST INN is based in Telangana in the INDIA, and is supported internationally
                         by 19 offices in over 10 countries around the world: India - Indonesia - Portuguese - Amsterdam -
                         United States Of America - Wakanda - Knowwhere - Vormir - Titan - Asgard
                     </p>
@@ -229,11 +234,11 @@
 
             <div class="col-block service-item" data-aos="fade-up">
                 <div class="service-icon">
-                    <i class="icon-group"></i>
+                    <i class="fa fa-dollar"></i>
                 </div>
                 <div class="service-text">
                     <h3 class="h2">Rates We Provide At</h3>
-                    <p>REST IN  guarantees to offer you the best available rates.
+                    <p>REST INN  guarantees to offer you the best available rates.
                         And with our promise to price match, you can rest assured that
                         you’re always getting a great deal.
                     </p>
@@ -249,7 +254,7 @@
                     <p>Many travelers begin with search engines...<br>
                         That's why we don't wait for guests to come to us, but actively promote your property
                         on search engines all across the globe.
-                        Listing on restin.com means your listing is advertised on Google Maps too.
+                        Listing on restinn.com means your listing is advertised on Google Maps too.
                         We partner with airline companies like Emirates, American Airlines, easyJet, KLM,
                         and many more to promote your property to their customers.
                     </p>
@@ -270,7 +275,7 @@
 
             <div class="col-block service-item" data-aos="fade-up">
                 <div class="service-icon">
-                    <i class="icon-cube"></i>
+                    <i class="fa fa-bus"></i>
                 </div>
                 <div class="service-text">
                     <h3 class="h2">Trips</h3>
@@ -280,7 +285,9 @@
             </div>
     
             <div class="col-block service-item" data-aos="fade-up">
-                <div class="service-icon"><i class="icon-lego-block"></i></div>
+                <div class="service-icon">
+                    <i class="fa fa-graduation-cap"></i>
+                </div>
                 <div class="service-text">
                     <h3 class="h2">Learning</h3>
                     <p>We even provide learning facilities like self defence, yoga, marshall arts an we also provide gym
@@ -304,7 +311,7 @@
             <div class="row section-header has-bottom-sep light-sep" data-aos="fade-up">
                 <div class="col-full">
                     <h3 class="subhead">Recent Events</h3>
-                    <h1 class="display-2 display-2--light">We love what we do, check out some of our latest works</h1>
+                    <h1 class="display-2 display-2--light">Check out some of our latest events</h1>
                 </div>
             </div> <!-- section-header end -->
 
@@ -335,8 +342,8 @@
                                 </p>
                             </div>
     
-                            <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
-                                <i class="icon-link"></i>
+                            <a href="" class="item-folio__project-link" title="Go to the event page">
+                                <p class="">Go to the event page</p>
                             </a>
     
                             <div class="item-folio__caption">
@@ -369,15 +376,15 @@
                                 </p>
                             </div>
     
-                            <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
-                                <i class="icon-link"></i>
-                            </a>
-    
                             <div class="item-folio__caption">
                                 <p>
                                     Balancing on a stick. Who walks the whole stick balancing in less time is the winner.
                                 </p>
                             </div>
+
+                            <a href="" class="item-folio__project-link" title="Go to the event page">
+                                <p class="">Go to the event page</p>
+                            </a>
     
                         </div>
                     </div> <!-- end masonry__brick -->
@@ -403,8 +410,8 @@
                                 </p>
                             </div>
     
-                            <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
-                                <i class="icon-link"></i>
+                            <a href="" class="item-folio__project-link" title="Project link">
+                                <p class="">Go to the event page</p>
                             </a>
     
                             <div class="item-folio__caption">
@@ -437,8 +444,8 @@
                                 </p>
                             </div>
     
-                            <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
-                                <i class="icon-link"></i>
+                            <a href="" class="item-folio__project-link" title="Project link">
+                                <p class="">Go to the event page</p>
                             </a>
     
                             <div class="item-folio__caption">
@@ -466,7 +473,7 @@
         <div class="row section-header" data-aos="fade-up">
             <div class="col-full">
                 <h3 class="subhead">Our Clients</h3>
-                <h1 class="display-2"><span style="color: #33a242">REST IN</span> has been honored to
+                <h1 class="display-2"><span style="color: #33a242">REST INN</span> has been honored to
                 partner up with these clients</h1>
             </div>
         </div> <!-- end section-header -->
@@ -571,7 +578,7 @@
                         <h5>Email Us At</h5>
                         <p>
                             sriram.nandala@gmail.com<br>
-                            info@restin.com
+                            info@restinn.com
                         </p>
                     </div>
 
@@ -626,7 +633,7 @@
 
                 <h4>Get Notified</h4>
                 <p>
-                    Please enter your email and proceed to register for restin and book your room
+                    Please enter your email and proceed to register for REST INN and book your room
                 </p>
 
                 <div class="subscribe-form">
@@ -645,7 +652,7 @@
 
             <div class="col-twelve">
                 <div class="copyright">
-                    <span>© Copyright RESTIN 2018</span>
+                    <span>© Copyright REST INN 2018</span>
                     <span>CEO: <a href="#">Neelakanta Sriram</a></span>
                 </div>
 
@@ -686,8 +693,8 @@
                 </div>
                 <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
                     <div class="pswp__share-tooltip"></div>
-                </div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button> <button class="pswp__button pswp__button--arrow--right" title=
-                "Next (arrow right)"></button>
+                </div><button class="pswp__button pswp__button--arrow--left" title="Previous"></button> <button class="pswp__button pswp__button--arrow--right" title=
+                "Next"></button>
                 <div class="pswp__caption">
                     <div class="pswp__caption__center"></div>
                 </div>

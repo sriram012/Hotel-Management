@@ -1,15 +1,641 @@
-{% extends 'customers/base.html' %}
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
 
-{# Head... #}
-{% block head %}
+    <!--- basic page needs
+   ================================================== -->
+    <meta charset="utf-8">
+    <title>REST INN - HOME</title>
+    <meta name="description" content="A restaurant's website...">
+    <meta name="author" content="Neelakanta Sriram">
 
-    <title>Rest In - Home</title>
+    <!-- mobile specific metas
+   ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-{% endblock head %}
+    <!-- CSS
+   ================================================== -->
+    <link rel="stylesheet" href="{% static 'customers/home/css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'customers/home/css/vendor.css' %}">
+    <link rel="stylesheet" href="{% static 'customers/home/css/main.css' %}">
 
-{# Body... #}
-{% block body %}
-    <h2>{{ username }}</h2>
-    <a href="{% url 'customers:logout' %}">Logout</a>
+    <!-- script
+   ================================================== -->
+    <script src="{% static 'customers/home/js/modernizr.js' %}"></script>
+    <script src="{% static 'customers/home/js/pace.min.js' %}"></script>
 
-{% endblock body %}
+    <!-- favicons
+	================================================== -->
+    <link rel="shortcut icon" href="{% static 'customers/home/favicon.ico' %}" type="image/x-icon">
+    <link rel="icon" href="{% static 'customers/home/favicon.ico' %}" type="image/x-icon">
+
+</head>
+
+<body id="top">
+
+{% if messages %}
+    {% for message in messages %}
+        {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+            <div class="alert-box--error" style="text-align: center; position: absolute; width: 100%; top: 69px">
+                {{ message }}
+            </div>
+        {% else %}
+            <div class="alert-box--success" style="text-align: center; position: absolute; width: 100%; top: 69px">
+                {{ message }}
+            </div>
+        {% endif %}
+    {% endfor %}
+{% endif %}
+
+
+<!-- header -->
+<header>
+
+    <div class="header-logo">
+        <a href="{% url 'customers:home' %}">REST INN</a>
+    </div>
+
+    <a id="header-menu-trigger" href="#0">
+        <span class="header-menu-icon"></span>
+    </a>
+
+    <nav id="menu-nav-wrap">
+
+        <a href="#0" class="close-button" title="close"><span>Close</span></a>
+
+        <h3>REST INN.</h3>
+
+        <ul class="nav-list">
+            <li class="current"><a class="" href="#home" title="">Home</a></li>
+            <li><a class="" href="#about" title="">About</a></li>
+            <li><a class="" href="#services" title="">Services</a></li>
+            <li><a class="" href="#portfolio" title="">Works</a></li>
+            <li><a class="" href="#contact" title="">Contact</a></li>
+            <li><a class="" href="{% url 'customers:logout' %}" title="">Logout</a></li>
+        </ul>
+
+        <ul class="header-social-list">
+            <li>
+                <a href="#"><i class="fa fa-facebook-square"></i></a>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-instagram"></i></a>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-behance"></i></a>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-dribbble"></i></a>
+            </li>
+        </ul>
+
+    </nav>  <!-- end #menu-nav-wrap -->
+
+</header> <!-- end header -->
+
+
+<!-- home
+   ================================================== -->
+<section id="home">
+
+    <div class="overlay"></div>
+
+    <div class="home-content-table">
+        <div class="home-content-tablecell">
+            <div class="row">
+                <div class="col-twelve">
+			  		
+                    <h3 class="animate-intro">
+                        <span style="color: black">REST INN</span> Welcomes you
+                        <span style="color: black">{{ username }}</span>.
+                    </h3>
+                    <h1 class="animate-intro">
+                        We Provide Stunning  <br>
+                        Room Service and Foods.
+                    </h1>
+
+                    {% if rooms_booked == 0 %}
+
+                        <div class="more animate-intro">
+                            <a class=" button book_order" id="book_order" href="#*">
+                                Book A Room
+                            </a>
+                        </div>
+
+                    {% else %}
+
+                        <div class="more animate-intro">
+                            <a class=" button book_order" id="book_order" href="#*">
+                                Book Another Room
+                            </a>
+                        </div>
+
+                        <div class="more animate-intro">
+                            <a class=" button book_order" id="book_order" href="##">
+                                Order Something
+                            </a>
+                        </div>
+
+                    {% endif %}
+
+                </div> <!-- end col-twelve -->
+            </div> <!-- end row -->
+        </div> <!-- end home-content-tablecell -->
+    </div> <!-- end home-content-table -->
+
+    <ul class="home-social-list">
+        <li class="animate-intro">
+            <a href="#"><i class="fa fa-facebook-square"></i></a>
+        </li>
+        <li class="animate-intro">
+            <a href="#"><i class="fa fa-twitter"></i></a>
+        </li>
+        <li class="animate-intro">
+            <a href="#"><i class="fa fa-instagram"></i></a>
+        </li>
+        <li class="animate-intro">
+            <a href="#"><i class="fa fa-behance"></i></a>
+        </li>
+        <li class="animate-intro">
+            <a href="#"><i class="fa fa-dribbble"></i></a>
+        </li>
+    </ul> <!-- end home-social-list -->
+
+    <div class="scrolldown">
+        <a href="#about" class="scroll-icon ">
+            Scroll Down
+            <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+        </a>
+    </div>
+   
+</section> <!-- end home -->
+
+
+<!-- about
+   ================================================== -->
+<section id="about">
+
+    <div class="row about-wrap">
+        <div class="col-full">
+
+            <div class="about-profile-bg"></div>
+
+            <div class="intro">
+                <h3 class="animate-this">About Us</h3>
+                <p class="lead animate-this"><span>Infinity</span> is a creative digital agency based in Manila, Philippines. We are composed of creative designers and experienced developers.</p>
+            </div>
+
+        </div> <!-- end col-full  -->
+    </div> <!-- end about-wrap  -->
+
+</section> <!-- end about -->
+
+
+<!-- about
+   ================================================== -->
+<section id="services">
+
+    <div class="overlay"></div>
+    <div class="gradient-overlay"></div>
+   	
+    <div class="row narrow section-intro with-bottom-sep animate-this">
+        <div class="col-full">
+   			
+            <h3>Services</h3>
+            <h1>What We Do.</h1>
+   			
+            <p class="lead">Lorem ipsum Elit ut consequat veniam eu nulla nulla reprehenderit reprehenderit sit velit in cupidatat ex aliquip ut cupidatat Excepteur tempor id irure sed dolore sint sunt voluptate ullamco nulla qui Duis qui culpa voluptate enim ea aute qui veniam in irure et nisi nostrud deserunt est officia minim.</p>
+   			
+        </div> <!-- end col-full -->
+    </div> <!-- end row -->
+
+    <div class="row services-content">
+
+        <div class="services-list block-1-2 block-tab-full group">
+
+            <div class="bgrid service-item animate-this">
+
+                <span class="icon"><i class="icon-paint-brush"></i></span>
+
+                <div class="service-content">
+                    <h3 class="h05">Branding</h3>
+
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.
+                    </p>
+                </div>
+
+            </div> <!-- end bgrid -->
+
+            <div class="bgrid service-item animate-this">
+
+                <span class="icon"><i class="icon-earth"></i></span>
+
+                <div class="service-content">
+                    <h3 class="h05">Web Design</h3>
+
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.
+                    </p>
+                </div>
+
+            </div> <!-- end bgrid -->
+
+            <div class="bgrid service-item animate-this">
+
+                <span class="icon"><i class="icon-lego-block"></i></span>
+
+                <div class="service-content">
+                    <h3 class="h05">Web Development</h3>
+
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.
+                    </p>
+                </div>
+
+            </div> <!-- end bgrid -->
+
+            <div class="bgrid service-item animate-this">
+
+                <span class="icon"><i class="icon-megaphone"></i></span>
+
+                <div class="service-content">
+                    <h3 class="h05">Marketing</h3>
+
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.
+                    </p>
+                </div>
+
+            </div> <!-- end bgrid -->
+
+        </div> <!-- end services-list -->
+   		
+    </div> <!-- end services-content -->
+
+</section> <!-- end services -->
+
+
+<!-- portfolio
+   ================================================== -->
+<section id="portfolio">
+   	
+    <div class="intro-wrap">
+
+        <div class="row narrow section-intro with-bottom-sep animate-this">
+            <div class="col-twelve">
+                <h3>Showcase</h3>
+                <h1>See Our Featured Projects.</h1>
+		   		
+                <p class="lead">Lorem ipsum Dolor adipisicing nostrud et aute Excepteur amet commodo ea dolore irure esse Duis nulla sint fugiat cillum ullamco proident aliquip quis qui voluptate dolore veniam Ut laborum non est in officia.</p>
+            </div>
+        </div> <!-- end row section-intro -->
+
+    </div> <!-- end intro-wrap -->
+
+    <div class="row portfolio-content">
+        <div class="col-twelve">
+            <div id="folio-wrap" class="bricks-wrapper">
+
+                <div class="brick folio-item">
+                    <div class="item-wrap animate-this" data-src="images/portfolio/gallery/g-shutterbug.jpg" data-sub-html="#01" >
+                        <a href="#" class="overlay">
+                            <img src="{% static 'customers/home/images/portfolio/shutterbug.jpg' %}" alt="Skaterboy">
+                            <div class="item-text">
+                                <span class="folio-types">
+                                    Web Development
+                                </span>
+                                <h3 class="folio-title">Shutterbug</h3>
+                            </div>
+                        </a>
+                        <a href="https://www.behance.net/" class='details-link' title="details">
+                            <i class="icon-link"></i>
+                        </a>
+                    </div> <!-- end item-wrap -->
+						
+                    <div id="01" class='hide'>
+                        <h4>Shutterbug</h4>
+                        <p>Lorem ipsum Dolor deserunt labore sint officia. Magna et aute enim proident tempor sunt quis nulla voluptate fugiat velit. <a href="https://www.behance.net/">Details</a></p>
+                    </div>
+                </div> <!-- end folio-item -->
+
+                <div class="brick folio-item">
+                    <div class="item-wrap animate-this" data-src="images/portfolio/gallery/g-yellowwall.jpg" data-sub-html="#02">
+                        <a href="#" class="overlay">
+                            <img src="{% static 'customers/home/images/portfolio/yellowwall.jpg' %}" alt="Shutterbug">
+                            <div class="item-text">
+                                <span class="folio-types">
+                                    Marketing
+                                </span>
+                                <h3 class="folio-title">Yellow Wall</h3>
+                            </div>
+                        </a>
+                        <a href="https://www.behance.net/" class='details-link' title="details">
+                            <i class="icon-link"></i>
+                        </a>
+                    </div> <!-- end item-wrap -->
+
+                    <div id="02" class='hide'>
+                        <h4>Yellow Wall</h4>
+                        <p>Lorem ipsum Dolor deserunt labore sint officia. Magna et aute enim proident tempor sunt quis nulla voluptate fugiat velit. <a href="https://www.behance.net/">Details</a></p>
+                    </div>
+                </div> <!-- end folio-item -->
+
+                <div class="brick folio-item">
+                    <div class="item-wrap animate-this" data-src="images/portfolio/gallery/g-architecture.jpg" data-sub-html="#03" >
+                        <a href="#" class="overlay">
+                            <img src="{% static 'customers/home/images/portfolio/architecture.jpg' %}" alt="Explore">
+                            <div class="item-text">
+                                <span class="folio-types">
+                                    Web Design
+                                </span>
+                                <h3 class="folio-title">Architecture</h3>
+                            </div>
+                        </a>
+                        <a href="https://www.behance.net/" class='details-link' title="details">
+                            <i class="icon-link"></i>
+                        </a>
+                    </div> <!-- end item-wrap -->
+
+                    <div id="03" class='hide'>
+                        <h4>Architecture</h4>
+                        <p>Lorem ipsum Dolor deserunt labore sint officia. Magna et aute enim proident tempor sunt quis nulla voluptate fugiat velit. <a href="https://www.behance.net/">Details</a></p>
+                    </div>
+                </div> <!-- end folio-item -->
+
+                <div class="brick folio-item">
+                    <div class="item-wrap animate-this"  data-src="images/portfolio/gallery/g-minimalismo.jpg"  data-sub-html="#04" >
+                        <a href="#" class="overlay">
+                            <img src="{% static 'customers/home/images/portfolio/minimalismo.jpg' %}" alt="Minimalismo">
+                            <div class="item-text">
+                                <span class="folio-types">
+                                    Web Design
+                                </span>
+                                <h3 class="folio-title">Minimalismo</h3>
+                            </div>
+                        </a>
+                        <a href="https://www.behance.net/" class='details-link' title="details">
+                            <i class="icon-link"></i>
+                        </a>
+                    </div> <!-- end item-wrap -->
+
+                    <div id="04" class='hide'>
+                        <h4>Minimalismo</h4>
+                        <p>Lorem ipsum Dolor deserunt labore sint officia. Magna et aute enim proident tempor sunt quis nulla voluptate fugiat velit. <a href="https://www.behance.net/">Details</a></p>
+                    </div>
+                </div> <!-- end folio-item -->
+
+                <div class="brick folio-item">
+                    <div class="item-wrap animate-this"  data-src="images/portfolio/gallery/g-skaterboy.jpg"  data-sub-html="#05" >
+                        <a href="#" class="overlay">
+                            <img src="{% static 'customers/home/images/portfolio/skaterboy.jpg' %}" alt="Bicycle">
+                            <div class="item-text">
+                                <span class="folio-types">
+                                    Branding
+                                </span>
+                                <h3 class="folio-title">Skaterboy</h3>
+                            </div>
+                        </a>
+                        <a href="https://www.behance.net/" class='details-link' title="details">
+                            <i class="icon-link"></i>
+                        </a>
+                    </div> <!-- end item-wrap -->
+
+                    <div id="05" class='hide'>
+                        <h4>Skaterboy</h4>
+                        <p>Lorem ipsum Dolor deserunt labore sint officia. Magna et aute enim proident tempor sunt quis nulla voluptate fugiat velit. <a href="https://www.behance.net/">Details</a></p>
+                    </div>
+                </div> <!-- end folio-item -->
+	           
+                <div class="brick folio-item">
+                    <div class="item-wrap animate-this"  data-src="images/portfolio/gallery/g-salad.jpg"  data-sub-html="#06">
+                        <a href="#" class="overlay">
+                            <img src="{% static 'customers/home/images/portfolio/salad.jpg' %}" alt="Salad">
+                            <div class="item-text">
+                                <span class="folio-types">
+                                    Branding
+                                </span>
+                                <h3 class="folio-title">Salad</h3>
+                            </div>
+                        </a>
+                        <a href="https://www.behance.net/" class='details-link' title="details">
+                            <i class="icon-link"></i>
+                        </a>
+                    </div> <!-- end item-wrap -->
+
+                    <div id="06" class='hide'>
+                        <h4>Salad</h4>
+                        <p>Lorem ipsum Dolor deserunt labore sint officia. Magna et aute enim proident tempor sunt quis nulla voluptate fugiat velit. <a href="www.behance.net">Details</a></p>
+                    </div>
+                </div> <!-- end folio-item -->
+
+            </div> <!-- end folio-wrap -->
+        </div> <!-- end twelve -->
+    </div> <!-- end portfolio-content -->
+
+</section>  <!-- end portfolio -->
+
+
+<!-- Testimonials Section
+   ================================================== -->
+<section id="testimonials">
+
+    <div class="row">
+        <div class="col-twelve">
+            <h2 class="animate-this">What They Say About Us.</h2>
+        </div>
+    </div>
+
+    <div class="row flex-container">
+    
+        <div id="testimonial-slider" class="flex-slider animate-this">
+
+            <ul class="slides">
+
+                <li>
+                    <p>
+                        Your work is going to fill a large part of your life, and the only way to be truly satisfied is
+                        to do what you believe is great work. And the only way to do great work is to love what you do.
+                        If you haven't found it yet, keep looking. Don't settle. As with all matters of the heart, you'll know when you find it.
+                    </p>
+
+                    <div class="testimonial-author">
+                        <img src="{% static 'customers/home/images/avatars/user-02.jpg' %}" alt="Author image">
+                        <div class="author-info">
+                            Steve Jobs
+                            <span class="position">CEO, Apple.</span>
+                        </div>
+                    </div>
+                </li> <!-- end slide -->
+
+                <li>
+                    <p>
+                        This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.
+                        Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem
+                        nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris.
+                    </p>
+
+                    <div class="testimonial-author">
+                        <img src="{% static 'customers/home/images/avatars/user-03.jpg' %}" alt="Author image">
+                        <div class="author-info">
+                            John Doe
+                            <span>CEO, ABC Corp.</span>
+                        </div>
+                    </div>
+                </li> <!-- end slide -->
+
+            </ul> <!-- end slides -->
+
+        </div> <!-- end testimonial-slider -->
+        
+    </div> <!-- end flex-container -->
+
+</section> <!-- end testimonials -->
+
+
+<!-- stats
+   ================================================== -->
+<section id="clients">
+
+    <div class="row animate-this">
+        <div class="col-twelve">
+
+            <div class="client-lists owl-carousel">
+                <div><img src="{% static 'customers/home/images/clients/mozilla.png' %}" alt=""></div>
+                <div><img src="{% static 'customers/home/images/clients/bower.png' %}" alt=""></div>
+                <div><img src="{% static 'customers/home/images/clients/codepen.png' %}" alt=""></div>
+                <div><img src="{% static 'customers/home/images/clients/envato.png' %}" alt=""></div>
+                <div><img src="{% static 'customers/home/images/clients/firefox.png' %}" alt=""></div>
+                <div><img src="{% static 'customers/home/images/clients/grunt.png' %}" alt=""></div>
+                <div><img src="{% static 'customers/home/images/clients/evernote.png' %}" alt=""></div>
+                <div><img src="{% static 'customers/home/images/clients/github.png' %}" alt=""></div>
+                <div><img src="{% static 'customers/home/images/clients/joomla.png' %}" alt=""></div>
+                <div><img src="{% static 'customers/home/images/clients/jQuery.png' %}" alt=""></div>
+                <div><img src="{% static 'customers/home/images/clients/wordpress.png' %}" alt=""></div>
+            </div>
+				
+        </div> <!-- end col-twelve -->
+    </div> <!-- end row -->
+
+</section> <!-- end clients -->
+
+
+<!-- footer
+   ================================================== -->
+<footer>
+    <div class="footer-main">
+
+        <div class="row">
+
+            <div class="col-three tab-full footer-about">
+
+                <h4 class="h05">REST INN.</h4>
+
+                <p>
+                    We provide beautiful and stunning rooms and delicious food for our customers.
+                </p>
+
+            </div> <!-- end footer-about -->
+
+            <div class="col-three tab-full footer-navigate">
+
+                <h4 class="h05">Navigate</h4>
+
+                <ul class="list-links">
+                    <li><a href="{% url 'customers:home' %}">Home</a></li>
+                    <li><a href="#">Profile</a></li>
+                    <li><a href="{% url 'customers:logout' %}">Logout</a></li>
+                </ul>
+
+            </div> <!-- end footer-navigate -->
+
+            <div class="col-three tab-full footer-aboutUs">
+
+                <h4 class="h05">About Us</h4>
+
+                <ul class="list-links">
+                    <li><a href="#">Rooms</a></li>
+                    <li><a href="#">Foods</a></li>
+                    <li><a href="#">Places</a></li>
+                    <li><a href="#">Our Employees</a></li>
+                </ul>
+
+            </div> <!-- end footer-aboutUs -->
+
+            <div class="col-three tab-full footer-social">
+
+                <h4 class="h05">Follow Us.</h4>
+
+                <ul class="list-links">
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Linked In</a></li>
+                </ul>
+
+            </div> <!-- end footer-social -->
+
+        </div> <!-- end row -->
+        <div class="row" style="margin-top: 5%; text-align: center">
+            <div class="col-twelve tab-full footer-subscribe end">
+
+                <h4 class="h06">Get Notified.</h4>
+
+                <p>If you want to allow notifications from our website, please submit your email-Id</p>
+
+                <div class="subscribe-form">
+
+                    <form id="mc-form" class="group" method="post">
+
+                        <input type="email" value="{{ email }}" name="email"
+                               class="email" id="mc-email" required disabled>
+
+                        <!-- <input type="submit" name="subscribe" > -->
+                        <a href="{% url 'customers:add-email-to-notifications' email %}"><i class="icon-mail"></i></a>
+
+                        <label for="mc-email" class="subscribe-message"></label>
+
+                    </form>
+
+                </div>
+
+            </div> <!-- end footer-subscribe -->
+        </div>
+
+    </div> <!-- end footer-main -->
+
+    <div class="footer-bottom">
+
+        <div class="row">
+
+            <div class="col-twelve">
+                <div class="copyright">
+                    <span>© Copyright REST INN 2018.</span>
+                    <span>Design by <a href="{% url 'customers:landing_page' %}">Neelakanta Sriram</a></span>
+                </div>
+            </div>
+
+        </div>
+
+    </div> <!-- end footer-bottom -->
+
+    <div id="go-top">
+        <a class="" title="Back to Top" href="#top">
+            <i class="fa fa-long-arrow-up" aria-hidden="true"></i>
+        </a>
+    </div>
+</footer>
+
+<div id="preloader">
+    <div id="loader"></div>
+</div>
+
+<!-- Java Script
+   ================================================== --> 
+<script src="{% static 'customers/home/js/jquery-2.1.3.min.js' %}"></script>
+<script src="{% static 'customers/home/js/plugins.js' %}"></script>
+<script src="{% static 'customers/home/js/main.js' %}"></script>
+
+</body>
+
+</html>

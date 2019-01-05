@@ -5,8 +5,7 @@ from .models import *
 @admin.register(Customers)
 class AuthorAdmin(admin.ModelAdmin):
     search_fields = ['customer_id']
-    list_display = ('customer_id', 'address', 'contact_details', 'room_assigned')
-    list_filter = ('room_assigned',)
+    list_display = ('customer_id', 'address', 'contact_details')
 
 
 @admin.register(Address)
@@ -21,3 +20,6 @@ class AuthorAdmin(admin.ModelAdmin):
     search_fields = ['email']
     list_display = ('email', 'phone_number')
     list_filter = ('email', 'phone_number')
+
+
+admin.site.register(NotifiedEmails)

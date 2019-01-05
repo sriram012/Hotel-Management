@@ -2,25 +2,9 @@ from django.contrib import admin
 from .models import *
 
 
-@admin.register(Floor)
+@admin.register(RoomsManagingEmployees)
 class AuthorAdmin(admin.ModelAdmin):
-    search_fields = ['floor']
-    list_display = ('floor',)
-    list_filter = ('floor',)
-    ordering = ('floor',)
-
-
-@admin.register(BlockFloor)
-class AuthorAdmin(admin.ModelAdmin):
-    search_fields = ['block', 'floor']
-    list_display = ('block', 'floor')
-    list_filter = ('block',)
-    ordering = ('block', 'floor')
-
-
-@admin.register(Room)
-class AuthorAdmin(admin.ModelAdmin):
-    search_fields = ['room_number']
-    list_display = ('block_floor', 'room_number', 'room_status')
-    list_filter = ('block_floor',)
-    ordering = ('block_floor', 'room_status')
+    search_fields = ['employee_id', 'employee_dob']
+    list_display = ('employee_id', 'employee_user', 'employee_dob')
+    ordering = ('employee_id',)
+    list_per_page = 20
